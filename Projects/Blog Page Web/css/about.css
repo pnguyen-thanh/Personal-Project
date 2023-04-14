@@ -5,7 +5,11 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    min-height: 100vh;
+    line-height: 1.25;
+}
+
+img {
+    border-radius: 3px;
 }
 
 a {
@@ -28,7 +32,7 @@ section {
     min-width: 300px;
     /* border: 5px solid pink; */
     padding: 1.125em 1.5em 1.125em 1.25em;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .logo-container {
@@ -63,85 +67,113 @@ section {
     text-transform: uppercase;
 }
 
+/*----- BODY -----*/
 .main-page {
-    background-image: url(../images/kevin-canlas-cFFEeHNZEqw-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    color: #ffff;
-    line-height: 1.5;
     display: grid;
-    grid-template-columns: 1em 1fr 1em;
-    grid-template-rows: 5.4375em auto auto auto 1em;
-    grid-template-areas: 
-    ". date ."
-    ". title ."
-    ". content .";
-    min-width: 374px;
-    text-shadow: 2px 2px 4px #000000;
+    color: #151515;
+    grid-template-columns: 1.25em minmax(320px, 1fr) 1.25em;
+    grid-template-rows: 1.625em auto 1.6875em auto auto 3.125em auto 2.8125em;
+    grid-template-areas:
+    ". main-img ."
+    ". greeting ."
+    ". intro ."
+    ". main-content .";
 }
 
-.main-date,
-.main-title,
-.main-content,
-.date,
-.title,
-.content {
+.main-img,
+.greeting,
+.intro,
+.main-content {
+    grid-column: 2 / -2;
+}
+
+.main-img,
+.greeting,
+.intro,
+.question-1,
+.question-2,
+.answer-1,
+.answer-2 {
     margin: 0;
 }
 
-.main-date {
-    /* background-color: red; */
-    grid-area: "date";
-    grid-row: 2;
-    grid-column: 2 / -2;
-    font-size: 0.75rem;
+.intro,
+.question-1,
+.question-2,
+.answer-1,
+.answer-2 {
     font-weight: 400;
 }
 
-.main-title {
-    /* background-color: blue; */
-    grid-area: "title";
-    font-size: 2rem;
+.main-img {
+    grid-area: "main-img";
+    grid-row: 2;
+    width: 182px;
+    height: 182px;
+    border-radius: 50%;
+}
+
+.greeting {
+    grid-area: "greeting";
+    grid-row: 4;
     font-weight: 700;
-    grid-row: 3;
-    grid-column: 2 / -2;
-    margin: 0.25em 0;
+}
+
+.intro {
+    grid-area: "intro";
+    grid-row: 5;
+    margin-top: 1em;
 }
 
 .main-content {
-    grid-area: "content";
-    font-size: 1rem;
-    font-weight: 400;
-    grid-row: 4 / -2;
-    grid-column: 2 / -2;
-    /* background-color: orange; */
-    max-width: 614px;
+    grid-area: "main-content";
+    grid-row: 7;
 }
 
-/*-------- BLOG --------*/
-/* .blog {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 1.625em; 
-} */
+.question-1,
+.question-2 {
+    font-weight: 700;
+}
 
+.answer-1,
+.answer-2 {
+    margin-top: 1.25em;
+}
+
+.question-2 {
+    margin-top: 1.25em;
+}
+
+/*----- RECENT BLOG ------*/
 .blog-container {
     display: grid;
-    line-height: 1.5;
+    line-height: 1.25;
     grid-template-columns: 1.25em minmax(374px, 1fr) 1.25em;
-    grid-template-rows: 2.125em minmax(232px, auto) auto auto auto;
-    grid-template-areas: 
+    grid-template-rows: 2.5625em auto minmax(232px, auto) repeat(3, auto);
+    grid-template-areas:
     ". image ."
     ". date ."
     ". title ."
     ". content .";
 }
 
+.date,
+.title,
+.content,
+.recent-title {
+    margin: 0;
+}
+
+.recent-title { 
+    font-weight: 700;
+    text-align: center;
+}
+
 .blog-img {
     width: 100%;
     grid-area: "image";
     grid-column: 2 / -2;
-    grid-row: 2;
+    grid-row: 3;
     margin-bottom: 0.875em;
     border-radius: 3px;
 }
@@ -149,7 +181,7 @@ section {
 .date {
     grid-area: "date";
     grid-column: 2 / -2;
-    grid-row: 3;
+    grid-row: 4;
     color: #000000;
     text-transform: uppercase;
     font-weight: 400;
@@ -159,7 +191,7 @@ section {
 .title {
     grid-area: "title";
     grid-column: 2 / -2;
-    grid-row: 4;
+    grid-row: 5;
     margin-top: 0.375em;
     color: #141414;
     font-weight: 700;
@@ -168,30 +200,20 @@ section {
 .content {
     grid-area: "content";
     grid-column: 2 / -2;
-    grid-row: 5;
+    grid-row: 6;
     margin-top: 0.5625em;
     color: #505050;
     font-weight: 400;
 }
 
-.view-more {
-    display: block;
-    background: none;
-    border: none;
-    color: #000000;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1rem;
-    text-decoration-line: underline;
-    margin: 1.6875em auto 2.6875em auto;
-}
-
+/*----- Copy right section ------*/
 .copy-right {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #202020;
     padding: 2.3125em 0;
+    margin-top: 3.5em;
 }
 
 .cp-1,
@@ -213,7 +235,7 @@ section {
     margin-top: 0.25em;
 }
 
-/*------ MEIDA QUERY ------*/
+/*----- MEDIA QUERY -----*/
 @media (min-width: 768px) {
     .header-container {
         padding: 1.125em 3.3125em 1.125em 3.3125em;
@@ -227,38 +249,63 @@ section {
         font-size: 1.25rem;
     }
 
+    .main-date {
+        font-size: 1rem;
+    }
+
     .nav-home,
     .nav-me {
         font-size: 1rem;
     }
 
-    .main-date {
-        font-size: 1rem;
-    }
-
-    .main-title {
-        font-size: 2.5rem;
-    }
-
     .main-page {
-        grid-template-columns: 3.3125em 1fr 3.3125em;
-        grid-template-rows: 17.9375em auto auto auto 3.7em;
+        display: grid;
+        color: #151515;
+        grid-template-columns: 3.3125em minmax(309px, 1fr) 3.3125em;
+        grid-template-rows: 5.875em auto 1.6875em auto auto 3.125em auto 2.8125em;
+        grid-template-areas:
+        ". main-img ."
+        ". greeting ."
+        ". intro ."
+        ". main-content .";
+    }
+
+    .main-img {
+       
     }
 
     .main-content {
-        max-width: 80%;
+        margin: 0 7.5625em;
+        max-width: 1000px;
+    }
+
+    .greeting {
+        font-size: 2.25rem;
+        margin: 0 1.472em 0 6.2em;
+    }
+
+    .main-img {
+        grid-row: 2;
+    }
+
+    .intro {
+        margin: 6em 3.3125em 0 14em;
+    }
+    
+    .greeting,
+    .intro {
+        grid-row: 2;
+        max-width: 900px;
     }
     
     .blog-container {
         display: block;
     }
 
-    .blog {
+    .recent-blog {
         display: grid;
         margin: 3.3125em 3.3125em 0 3.3125em;
         grid-template-columns: repeat(auto-fit, minmax(309px, 1fr));
         grid-gap: 1.625em;
     }
-
-    
 }

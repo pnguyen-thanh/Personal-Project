@@ -7,9 +7,17 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+img {
+    border-radius: 3px;
+}
+
 a {
     color: inherit; /* or color: transparent; */
     text-decoration: none;
+}
+
+section {
+    background-color: #FAFAFA;
 }
 
 .header-container,
@@ -23,6 +31,8 @@ a {
     min-width: 300px;
     /* border: 5px solid pink; */
     padding: 1.125em 1.5em 1.125em 1.25em;
+    /* border-bottom: 1.25px solid rgb(207, 202, 202); */
+    background-color: #FFFFFF;
 }
 
 .logo-container {
@@ -55,4 +65,230 @@ a {
     font-size: 0.8125rem;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.main-page {
+    display: grid;
+    line-height: 1.25;
+    color: #151515;
+    grid-template-columns: 1.25em minmax(374px, 1fr) 1.25em;
+    grid-template-rows: 2em auto auto auto 2.8175em auto 2.8175em auto 3.1875em;
+    grid-template-areas: 
+    ". main-date ."
+    ". main-title ."
+    ". main-intro ."
+    ". main-image ."
+    ".main-content .";
+}
+
+.main-date,
+.main-title,
+.main-intro,
+.main-image,
+.main-content {
+    grid-column: 2 / -2;
+    margin: 0;
+}
+
+.main-date { 
+    grid-area: "main-date"; 
+    grid-row: 2;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1.3em;
+}
+
+.main-title { 
+    grid-area: "main-title";
+    grid-row: 3;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.375em;
+}
+
+.main-intro { 
+    grid-area: "main-intro";
+    grid-row: 4;
+}
+
+.main-image {
+    grid-area: "main-image";
+    grid-row: 6;
+    width: 100%;
+}
+
+.main-content { 
+    grid-area: "main-content";
+    grid-row: 8;
+}
+
+
+/* ----- MAIN CONTENT ------*/
+
+.question-1,
+.answer-1,
+.question-2,
+.answer-2 {
+    margin: 0;
+}
+
+.answer-1,
+.answer-2,
+.question-2 {
+    margin-top: 1.25em;
+}
+
+.question-1,
+.question-2 {
+    font-weight: 700;
+}
+
+.answer-1,
+.answer-2 {
+    font-weight: 400;
+}
+
+/*----- RECENT POSTS -----*/
+.blog-container {
+    display: grid;
+    line-height: 1.25;
+    grid-template-columns: 1.25em minmax(374px, 1fr) 1.25em;
+    grid-template-rows: 2.5625em auto minmax(232px, auto) repeat(3, auto);
+    grid-template-areas:
+    ". image ."
+    ". date ."
+    ". title ."
+    ". content .";
+}
+
+.date,
+.title,
+.content,
+.recent-title {
+    margin: 0;
+}
+
+.recent-title { 
+    font-weight: 700;
+    text-align: center;
+}
+
+.blog-img {
+    width: 100%;
+    grid-area: "image";
+    grid-column: 2 / -2;
+    grid-row: 3;
+    margin-bottom: 0.875em;
+    border-radius: 3px;
+}
+
+.date {
+    grid-area: "date";
+    grid-column: 2 / -2;
+    grid-row: 4;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+
+.title {
+    grid-area: "title";
+    grid-column: 2 / -2;
+    grid-row: 5;
+    margin-top: 0.375em;
+    color: #141414;
+    font-weight: 700;
+}
+
+.content {
+    grid-area: "content";
+    grid-column: 2 / -2;
+    grid-row: 6;
+    margin-top: 0.5625em;
+    color: #505050;
+    font-weight: 400;
+}
+
+/*----- Copy right section ------*/
+.copy-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #202020;
+    padding: 2.3125em 0;
+    margin-top: 3.5em;
+}
+
+.cp-1,
+.cp-2 {
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.cp-1 {
+    color: #ECECEC;
+    font-weight: 700;
+    /* padding-top: 3.083em; */
+    /* margin-top: 3.083em; */
+}
+
+.cp-2 {
+    color: #D7D7D7;
+    font-weight: 400;
+    margin-top: 0.25em;
+}
+
+/*----- MEDIA QUERY -----*/
+@media (min-width: 768px) {
+    .header-container {
+        padding: 1.125em 3.3125em 1.125em 3.3125em;
+    }
+
+    .logo-img {
+        font-size: 1.875rem;
+    }
+
+    .logo-title {
+        font-size: 1.25rem;
+    }
+
+    .main-date {
+        font-size: 1rem;
+    }
+
+    .nav-home,
+    .nav-me {
+        font-size: 1rem;
+    }
+
+    .main-page {
+        grid-template-columns: 1.25em minmax(374px, 1fr) 1.25em;
+        grid-template-rows: 4.4375em auto auto auto 2.8175em auto 2.8175em auto 3.1875em;
+    }
+
+    .main-date,
+    .main-intro,
+    .main-content {
+        margin: 0 7.5625em;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .main-title {
+        font-size: 2.25rem;
+        margin: 0.67em 3.361em 0.75em 3.361em;
+    }
+
+    .blog-container {
+        display: block;
+    }
+
+    .recent-blog {
+        display: grid;
+        margin: 3.3125em 3.3125em 0 3.3125em;
+        grid-template-columns: repeat(auto-fit, minmax(309px, 1fr));
+        grid-gap: 1.625em;
+    }
 }
